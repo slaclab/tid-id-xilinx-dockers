@@ -22,7 +22,8 @@ You can then enable and start the docker service on the machine:
 You can then build and run the docker image with the commands:
 
 ```
-
+   > git clone https://github.com/slaclab/tid-id-xilinx-dockers
+   > cd tid-id-xilinx-dockers
    > ./build_docker.sh
    > ./run_docker.sh
 
