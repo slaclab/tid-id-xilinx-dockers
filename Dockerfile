@@ -12,6 +12,8 @@ RUN DEBIAN_FRONTEND=noninteractive \
     libtinfo5 \
     python3-pyqt5 \
     xterm \
+    libnss3-dev \
+    libasound2 \
     libreadline6-dev
 
 RUN locale-gen en_US.UTF-8
