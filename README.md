@@ -19,8 +19,8 @@ You can then enable and start the docker service on the machine:
 
 ```
 
-   > systemctrl enable docker
-   > systemctrl start docker
+   > systemctl enable docker
+   > systemctl start docker
 
 ```
 
