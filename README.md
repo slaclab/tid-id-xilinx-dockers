@@ -4,11 +4,18 @@ To run this on a build server you need to first install docker:
 
 ```
 
-   > apt-get install docker
+   > sudo apt-get install docker
 
 ```
 
 You must then add your user id to the docker group in /etc/groups
+
+
+```
+
+   > sudo usermod -a -G docker userName
+
+```
 
 You can then enable and start the docker service on the machine:
 
