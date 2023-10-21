@@ -48,3 +48,4 @@ The docker starts in the local directory: /u1/$USER/docker-runtime.
 
 You have access to your afs home directory in /myhome but it is currently readonly because of the way docker runs.
 
+
