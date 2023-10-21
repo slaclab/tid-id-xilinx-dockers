@@ -11,7 +11,7 @@ You must then add your user id to the docker group in /etc/groups
 
 ```
 
-   > sudo usermod -a -G docker userName
+   > sudo usermod -a -G docker $USER
 
 ```
 
