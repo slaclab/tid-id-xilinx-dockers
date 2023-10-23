@@ -24,10 +24,10 @@ ARG user
 RUN useradd -m -N --gid 0 --shell /bin/bash --uid ${uid} ${user}
 
 COPY setup_env.sh /
-RUN mkdir /runtime
+RUN mkdir /u1
 RUN mkdir /afs
-RUN mkdir /local
+RUN mkdir /myhome
 
 USER ${user}
-WORKDIR /runtime
+WORKDIR /u1/${user}
 
