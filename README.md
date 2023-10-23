@@ -1,47 +1,36 @@
 Xilinx docker repository.
 
 To run this on a build server you need to first install docker:
-
-```
-   > sudo apt-get install docker
-
+```bash
+sudo apt-get install docker
 ```
 
 You must then add your user id to the docker group in /etc/groups
-
-```
-
-   > sudo usermod -a -G docker userName
-
+```bash
+sudo usermod -a -G docker $USER
 ```
 
 You can then enable and start the docker service on the machine:
-
+```bash
+sudo systemctl enable docker
+sudo systemctl start docker
 ```
 
-   > systemctrl enable docker
-   > systemctrl start docker
-
-```
+`Log out` and `log in` again into the servr
 
 You can then build and run the docker image with the commands:
 
-```
-   > git clone https://github.com/slaclab/tid-id-xilinx-dockers
-   > cd tid-id-xilinx-dockers
-   > ./build_docker.sh
-   > ./run_docker.sh
-
+```bash
+git clone https://github.com/slaclab/tid-id-xilinx-dockers
+cd tid-id-xilinx-dockers
+./build_docker.sh
+./run_docker.sh
 ```
 
 Inside the docker you can then source the environment and run model composer
-
-
-```
-
-   > soruce /setup_env.sh
-   > model_composer
-
+```bash
+soruce <path_to_setup_file>/setup_env.sh
+model_composer
 ```
 
 The docker starts in the local directory: /u1/$USER/docker-runtime.
