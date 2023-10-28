@@ -22,7 +22,7 @@ You can then build and run the docker image with the commands:
 
 ```bash
 git clone https://github.com/slaclab/tid-id-xilinx-dockers
-cd tid-id-xilinx-dockers/rhel6
+cd tid-id-xilinx-dockers/centos7
 ./build_docker.sh
 ./run_docker.sh
 ```
