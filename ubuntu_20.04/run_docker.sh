@@ -8,5 +8,5 @@ docker run -ti \
    -v /etc/localtime:/etc/localtime:ro \
    -v /u1:/u1 \
    -v ${HOME}:/myhome \
-   tid-xilinx-${USER}:latest /bin/bash
+   tid-xilinx-u20-04-${USER}:latest /bin/bash
 

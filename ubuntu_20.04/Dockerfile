@@ -23,7 +23,6 @@ ARG uid
 ARG user
 RUN useradd -m -N --gid 0 --shell /bin/bash --uid ${uid} ${user}
 
-COPY setup_env.sh /
 RUN mkdir /u1
 RUN mkdir /afs
 RUN mkdir /myhome
