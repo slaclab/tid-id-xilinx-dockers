@@ -2,7 +2,7 @@ Xilinx docker repository.
 
 To run this on a build server you need to first install docker:
 ```bash
-sudo apt-get install docker
+sudo apt-get install docker docker.io
 ```
 
 You must then add your user id to the docker group in /etc/groups
