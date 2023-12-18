@@ -20,8 +20,10 @@ RUN locale-gen en_US.UTF-8
 RUN update-locale LANG=en_US.UTF-8
 
 ARG uid
+ARG gid
 ARG user
-RUN useradd -m -N --gid 0 --shell /bin/bash --uid ${uid} ${user}
+RUN groupadd -g ${gid} -o ${user}
+RUN useradd -m -N --gid ${gid} --shell /bin/bash --uid ${uid} ${user}
 
 RUN mkdir /u1
 RUN mkdir /afs
@@ -29,4 +31,3 @@ RUN mkdir /myhome
 
 USER ${user}
 WORKDIR /u1/${user}
-
