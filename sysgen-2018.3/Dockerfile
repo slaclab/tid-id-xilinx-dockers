@@ -13,6 +13,8 @@ RUN yum -y install \
    libtinfo5 \
    python3-pyqt5 \
    xorg-x11-xkb-utils \
+   libxkbcommon \
+   xkeyboard-config \
    gcc \
    g++
 
