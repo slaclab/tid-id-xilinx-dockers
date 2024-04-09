@@ -16,6 +16,7 @@ RUN yum -y install \
    libxkbcommon \
    xkeyboard-config \
    xorg-x11-xkb-utils \
+   which \
    gcc \
    g++
 
