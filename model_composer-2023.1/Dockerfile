@@ -26,8 +26,6 @@ RUN groupadd -g ${gid} -o ${user}
 RUN useradd -m -N --gid ${gid} --shell /bin/bash --uid ${uid} ${user}
 
 RUN mkdir /u1
-RUN mkdir /afs
-RUN mkdir /myhome
 
 USER ${user}
-WORKDIR /u1/${user}
+WORKDIR /home/${user}
