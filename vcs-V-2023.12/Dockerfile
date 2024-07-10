@@ -22,6 +22,7 @@ RUN yum install -y \
     libX11-devel \
     libXrender \
     libXrandr \
+    libXScrnSaver \
     libXtst \
     mesa-libGL \
     mesa-libGLU \
@@ -49,6 +50,7 @@ RUN yum install -y \
 RUN yum install -y \
     git2u \
     git-lfs \
+    nano \
     zeromq \
     zeromq-devel
 
