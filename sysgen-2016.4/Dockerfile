@@ -1,5 +1,8 @@
 FROM centos:centos7
 
+# Add base URL for the CentOS repository directly
+RUN echo -e "[base]\nname=CentOS-7 - Base\nbaseurl=http://vault.centos.org/7.9.2009/os/x86_64/\ngpgcheck=1\ngpgkey=http://vault.centos.org/7.9.2009/os/x86_64/RPM-GPG-KEY-CentOS-7\nenabled=1\n\n[updates]\nname=CentOS-7 - Updates\nbaseurl=http://vault.centos.org/7.9.2009/updates/x86_64/\ngpgcheck=1\ngpgkey=http://vault.centos.org/7.9.2009/os/x86_64/RPM-GPG-KEY-CentOS-7\nenabled=1\n\n[extras]\nname=CentOS-7 - Extras\nbaseurl=http://vault.centos.org/7.9.2009/extras/x86_64/\ngpgcheck=1\ngpgkey=http://vault.centos.org/7.9.2009/os/x86_64/RPM-GPG-KEY-CentOS-7\nenabled=1" > /etc/yum.repos.d/CentOS-Base.repo
+
 RUN yum -y install \
    xterm \
    java-1.8.0-openjdk-devel \
@@ -16,11 +19,10 @@ RUN yum -y install \
    gcc \
    g++
 
-ARG uid
-ARG gid
-ARG user
-RUN groupadd -g ${gid} -o ${user}
-RUN useradd -m -N --gid ${gid} --shell /bin/bash --uid ${uid} ${user}
+RUN localedef -c -i en_US -f UTF-8 en_US.UTF-8
+ENV LANG en_US.UTF-8
+ENV LANGUAGE en_US:en
+ENV LC_ALL en_US.UTF-8
 
 ARG uid
 ARG gid
