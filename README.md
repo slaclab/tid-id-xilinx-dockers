@@ -12,11 +12,11 @@ git clone https://github.com/slaclab/tid-id-xilinx-dockers.git
 
 ### Tested Xilinx/Matlab Environments
 
-| Vivado Version | DSP SW Package   | Matlab Version | Tested Docker |
-|:--------------:|:----------------:|:--------------:|:-------------:|
-| 2016.4         | sysgen           | R2016b         | centos7       |
-| 2018.3         | sysgen           | R2017b         | centos7       |
-| 2023.1         | model_composer   | R2021a         | ubuntu_20.04  |
+| Vivado Version | DSP SW Package   | Matlab Version |
+|:--------------:|:----------------:|:--------------:|
+| 2016.4         | sysgen           | R2016b         |
+| 2018.3         | sysgen           | R2017b         |
+| 2023.1         | model_composer   | R2021a         |
 
 <!--- ######################################################## -->
 
