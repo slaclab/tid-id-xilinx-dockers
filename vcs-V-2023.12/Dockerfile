@@ -3,25 +3,26 @@ FROM registry.access.redhat.com/ubi8/ubi:latest
 # Update the system and install the necessary development tools
 RUN dnf -y update && \
     dnf -y install \
-    gcc \
-    gcc-c++ \
-    make \
-    automake \
-    autoconf \
-    libtool \
-    nano \
-    git \
-    git-lfs \
-    glibc-locale-source \
-    glibc-langpack-en \
-    ncurses-compat-libs \
-    libX11 \
-    python3-devel \
-    wget \
-    pkg-config \
-    bc \
-    mpfr \
-    gawk \
+        gcc \
+        gcc-c++ \
+        make \
+        automake \
+        autoconf \
+        libtool \
+        nano \
+        git \
+        git-lfs \
+        python3-devel \
+        glibc-locale-source \
+        glibc-langpack-en \
+        ncurses-compat-libs \
+        pkg-config \
+        libX11 \
+        wget \
+        bc \
+        mpfr \
+        gawk \
+        time \
     && dnf clean all
 
 # Install ZeroMQ from source because not included with dnf 
@@ -35,6 +36,8 @@ RUN cd /tmp && \
     ldconfig && \
     cd / && \
     rm -rf /tmp/zeromq-4.3.4.tar.gz /tmp/zeromq-4.3.4
+
+# Ensure that ZeroMQ libraries are found
 ENV PKG_CONFIG_PATH="/usr/local/lib/pkgconfig:$PKG_CONFIG_PATH"
 
 # Generate the en_US.UTF-8 locale
