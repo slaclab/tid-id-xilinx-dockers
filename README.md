@@ -48,10 +48,10 @@ sudo systemctl start docker
 # Go to Git clone
 cd tid-id-xilinx-dockers
 
-# Build the docker (Example: ./build_docker.sh model_composer 2023.1)
+# Build the docker (Example: ./build_docker.sh model_composer-2023.1)
 ./build_docker.sh <platform> <version>
 
-# Run the docker (Example: ./run_docker.sh model_composer 2023.1)
+# Run the docker (Example: ./run_docker.sh model_composer-2023.1)
 ./run_docker.sh <platform> <version>
 ```
 
