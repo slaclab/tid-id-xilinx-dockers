@@ -55,8 +55,6 @@ cd tid-id-xilinx-dockers
 ./run_docker.sh <platform> <version>
 ```
 
-The docker starts in the local directory: /u1/$USER/
-
-You have access to your afs home directory in /myhome but it is currently readonly because of the way docker runs.
+The docker starts in the local directory: /home/$USER/
 
 <!--- ######################################################## -->
