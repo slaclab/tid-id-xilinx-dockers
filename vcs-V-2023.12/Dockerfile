@@ -26,6 +26,7 @@ RUN yum install -y \
     libXtst \
     mesa-libGL \
     mesa-libGLU \
+    numactl \
     ncurses-devel \
     motif \
     elfutils-libelf-devel \
