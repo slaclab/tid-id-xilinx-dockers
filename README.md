@@ -49,10 +49,10 @@ sudo systemctl start docker
 cd tid-id-xilinx-dockers
 
 # Build the docker (Example: ./build_docker.sh model_composer-2023.1)
-./build_docker.sh <platform> <version>
+./build_docker.sh <platform>
 
 # Run the docker (Example: ./run_docker.sh model_composer-2023.1)
-./run_docker.sh <platform> <version>
+./run_docker.sh <platform>
 ```
 
 The docker starts in the local directory: /home/$USER/
