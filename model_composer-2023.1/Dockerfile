@@ -12,6 +12,7 @@ RUN DEBIAN_FRONTEND=noninteractive \
     libtinfo5 \
     python3-pyqt5 \
     xterm \
+    nano \
     libnss3-dev \
     libasound2 \
     libreadline6-dev
