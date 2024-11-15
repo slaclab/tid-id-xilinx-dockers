@@ -19,7 +19,10 @@ RUN yum -y install \
    libxkbcommon \
    xkeyboard-config \
    xorg-x11-xkb-utils \
+   perl \
+   perl-Data-Dumper \
    which \
+   nano \
    gcc \
    g++
 
