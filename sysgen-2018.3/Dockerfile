@@ -10,6 +10,8 @@ RUN yum -y install \
    python3-dev \
    python3-pip \
    python3-pyqt5 \
+   qt \
+   qt-x11 \
    libXrandr \
    libnss3 \
    libasound2 \
