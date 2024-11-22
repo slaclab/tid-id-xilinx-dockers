@@ -58,3 +58,12 @@ cd tid-id-xilinx-dockers
 The docker starts in the local directory: /home/$USER/
 
 <!--- ######################################################## -->
+
+# How to Make a Dockerfile for Model Composer
+1. Consult the [Vitis Model Composer User Guide (UG1483)](https://docs.amd.com/r/2023.1-English/ug1483-model-composer-sys-gen-user-guide/Supported-MATLAB-Versions-and-Operating-Systems) to see what versions of MATLAB and which operating systems are supported.
+
+2. Pick a version of MATLAB and check which operating systems Mathworks has dependencies documented for in their github [link](https://github.com/mathworks-ref-arch/container-images/tree/main/matlab-deps). Ideally, there already exists a Dockerfile and dependencies for an OS that is compatible with Vitis Model Composer (see step 1) and that you are happy using. If you want to use a different OS, consult the [MATLAB/Simulink System Requirements](https://www.mathworks.com/support/requirements/previous-releases.html) and create your own Dockerfile with the correct OS and dependencies.
+
+3. For example, we can create a Dockerfile for Vitis Model Composer 2023.1 and MATLAB/Simulink R2021a using the [Mathworks-maintained Ubuntu 20.04 container](https://github.com/mathworks-ref-arch/container-images/tree/main/matlab-deps/r2021a/ubuntu20.04) as a starting point.
+
+4. Copy the Mathworks Dockerfile and the `base-dependencies.txt`. Uncomment lines in the Mathworks Dockerfile as needed for your application. Paste the following lines to the end of the Dockerfile to retain your user permissions in the docker container and mount `/u1` and `/afs` where the install files are located.
