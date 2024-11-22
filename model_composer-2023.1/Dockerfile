@@ -45,6 +45,9 @@ RUN export DEBIAN_FRONTEND=noninteractive && apt-get update -y && apt-get instal
 # Uncomment to resolve license manager issues
 #RUN ln -s /lib64/ld-linux-x86-64.so.2 /lib64/ld-lsb-x86-64.so.3
 
+RUN locale-gen en_US.UTF-8
+RUN update-locale LANG=en_US.UTF-8
+
 ARG uid
 ARG gid
 ARG user
