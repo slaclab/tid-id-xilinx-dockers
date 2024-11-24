@@ -3,10 +3,12 @@ FROM ubuntu:20.04
 LABEL maintainer="The MathWorks, Inc."
 
 COPY base-dependencies.txt /tmp/base-dependencies.txt
+COPY add-on-dependencies.txt /tmp/add-on-dependencies.txt
 
 RUN export DEBIAN_FRONTEND=noninteractive \
     && apt-get update \
     && apt-get install --no-install-recommends -y `cat /tmp/base-dependencies.txt` \
+    && apt-get install --no-install-recommends -y `cat /tmp/add-on-dependencies.txt` \
     && apt-get clean && apt-get -y autoremove \
     && rm -rf /var/lib/apt/lists/*
 
@@ -16,13 +18,13 @@ RUN [ -d /usr/share/X11/xkb ] || mkdir -p /usr/share/X11/xkb
 # code generation capabilities, or if you will be compiling your own mex files
 # with gcc, g++, or gfortran.
 #
-RUN export DEBIAN_FRONTEND=noninteractive && apt-get update -y && apt-get install -y gcc g++ gfortran && apt-get clean && apt-get -y autoremove && rm -rf /var/lib/apt/lists/*
+#RUN export DEBIAN_FRONTEND=noninteractive && apt-get update -y && apt-get install -y gcc g++ gfortran && apt-get clean && apt-get -y autoremove && rm -rf /var/lib/apt/lists/*
 
 # Uncomment the following RUN apt-get statement to enable running a program
 # that makes use of MATLAB's Engine API for C and Fortran
 # https://www.mathworks.com/help/matlab/matlab_external/introducing-matlab-engine.html
 #
-RUN export DEBIAN_FRONTEND=noninteractive && apt-get update -y && apt-get install -y csh && apt-get clean && apt-get -y autoremove && rm -rf /var/lib/apt/lists/*
+#RUN export DEBIAN_FRONTEND=noninteractive && apt-get update -y && apt-get install -y csh && apt-get clean && apt-get -y autoremove && rm -rf /var/lib/apt/lists/*
 
 # Uncomment ALL of the following RUN apt-get statement to enable the playing of media files
 # (mp3, mp4, etc.) from within MATLAB.
@@ -40,22 +42,19 @@ RUN export DEBIAN_FRONTEND=noninteractive && apt-get update -y && apt-get instal
 #RUN export DEBIAN_FRONTEND=noninteractive && apt-get update -y && apt-get install --no-install-recommends -y libfuse2 && apt-get clean && apt-get -y autoremove && rm -rf /var/lib/apt/lists/*
 
 # Uncomment the following line if you require firefox
-RUN export DEBIAN_FRONTEND=noninteractive && apt-get update -y && apt-get install --no-install-recommends -y firefox && apt-get clean && apt-get -y autoremove && rm -rf /var/lib/apt/lists/*
+#RUN export DEBIAN_FRONTEND=noninteractive && apt-get update -y && apt-get install --no-install-recommends -y firefox && apt-get clean && apt-get -y autoremove && rm -rf /var/lib/apt/lists/*
 
 # Uncomment to resolve license manager issues
 #RUN ln -s /lib64/ld-linux-x86-64.so.2 /lib64/ld-lsb-x86-64.so.3
-
-RUN locale-gen en_US.UTF-8
-RUN update-locale LANG=en_US.UTF-8
 
 ARG uid
 ARG gid
 ARG user
 RUN groupadd -g ${gid} -o ${user}
-RUN useradd -m -N --gid ${gid} --shell /bin/bash --uid ${uid} ${user}
- 
+RUN useradd -m -N --gid ${gid} --shell /bin/bash --uid ${uid} ${user} && echo ${user}:password | chpasswd && adduser ${user} sudo
+
 RUN mkdir /u1
 RUN mkdir /afs
- 
+
 USER ${user}
 WORKDIR /home/${user}
