@@ -1,4 +1,4 @@
-FROM ubuntu:20.04
+FROM ubuntu:22.04
 
 # Install system tools
 COPY user-dependencies.txt /tmp/user-dependencies.txt
@@ -15,13 +15,13 @@ RUN export DEBIAN_FRONTEND=noninteractive \
 
 # Install qt4 from a weird place because some docs say Vitis Model Composer on Ubuntu 20 requires it
 # https://adaptivesupport.amd.com/s/question/0D52E00006vF6FOSA0/model-composer-v20212-matlab-r2021a-gets-stuck-at-initialization-stage-on-ubuntu-20041?language=en_US
-RUN export DEBIAN_FRONTEND=noninteractive \
-    && add-apt-repository ppa:rock-core/qt4 \
-    && apt-get update -y \
-    && apt-get install -y \
-       libqtcore4 \
-       libqtgui4 \
-       libtinfo-dev
+#RUN export DEBIAN_FRONTEND=noninteractive \
+#    && add-apt-repository ppa:rock-core/qt4 \
+#    && apt-get update -y \
+#    && apt-get install -y \
+#       libqtcore4 \
+#       libqtgui4 \
+#       libtinfo-dev
 
 RUN [ -d /usr/share/X11/xkb ] || mkdir -p /usr/share/X11/xkb
 
