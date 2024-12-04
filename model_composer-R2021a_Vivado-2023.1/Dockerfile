@@ -18,7 +18,10 @@ RUN export DEBIAN_FRONTEND=noninteractive \
 RUN export DEBIAN_FRONTEND=noninteractive \
     && add-apt-repository ppa:rock-core/qt4 \
     && apt-get update -y \
-    && apt-get install libqtcore4 -y
+    && apt-get install -y \
+       libqtcore4 \
+       libqtgui4 \
+       libtinfo-dev
 
 RUN [ -d /usr/share/X11/xkb ] || mkdir -p /usr/share/X11/xkb
 
