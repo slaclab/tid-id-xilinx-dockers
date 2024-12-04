@@ -78,6 +78,7 @@ RUN useradd -m -N --gid ${gid} --shell /bin/bash --uid ${uid} ${user}
 # Create required directories
 RUN mkdir /u1
 RUN mkdir /afs
+RUN mkdir /sdf
 
 # Set the SHELL environment variable
 ENV SHELL /bin/bash
