@@ -13,7 +13,7 @@ Put the correct MATLAB version first on the path:
 ```
 export PATH=$XILINX_MATLAB_ROOT_PATH/bin:$PATH
 ```
-Manually add the MATLAB Runtime Path (see [here](https://www.mathworks.com/help/compiler/mcr-path-settings-for-run-time-deployment.html#mw_8b4e2361-7e0d-4eb9-b3d3-55762966f1b0))
+Manually add the MATLAB Runtime Path (see [here](https://www.mathworks.com/help/compiler/mcr-path-settings-for-run-time-deployment.html#mw_8b4e2361-7e0d-4eb9-b3d3-55762966f1b0)):
 ```
 export LD_LIBRARY_PATH="${LD_LIBRARY_PATH:+${LD_LIBRARY_PATH}:}\
 $XILINX_MATLAB_ROOT_PATH/runtime/glnxa64:\
