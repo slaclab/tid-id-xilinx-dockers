@@ -1,0 +1,3 @@
+[submodule "container-images"]
+	path = container-images
+	url = https://github.com/mathworks-ref-arch/container-images.git
