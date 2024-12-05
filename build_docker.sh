@@ -28,4 +28,5 @@ docker image build $1/. -t \
    $dockerName:latest \
    --build-arg user=${USER} \
    --build-arg uid="$(id -u)" \
-   --build-arg gid="$(id -g)"
+   --build-arg gid="$(id -g)" \
+   --build-arg depDir="${PWD}/$1"
