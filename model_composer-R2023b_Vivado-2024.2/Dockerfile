@@ -33,6 +33,7 @@ RUN useradd -m -N --gid ${gid} --shell /bin/bash --uid ${uid} ${user} && echo ${
 
 RUN mkdir /u1
 RUN mkdir /afs
+RUN mkdir /sdf
 
 USER ${user}
 WORKDIR /home/${user}
