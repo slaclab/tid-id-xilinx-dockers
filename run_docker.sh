@@ -18,6 +18,7 @@ docker run -ti \
    -v ${HOME}/.Xauthority:/home/${USER}/.Xauthority \
    -v /etc/localtime:/etc/localtime:ro \
    -v /afs/:/afs \
+   -v /sdf/:/sdf \
    -v /u1:/u1 \
    -v /home:/home \
    $dockerName:latest /bin/bash
