@@ -1,10 +1,8 @@
 FROM ubuntu:20.04
 
 # Install system tools
-RUN MATLAB_DEP_PATH="../mathwork-matlab-deps/matlab-deps/r2021a/ubuntu20.04/base-dependencies.txt"
-
 COPY user-dependencies.txt /tmp/user-dependencies.txt
-COPY $MATLAB_DEP_PATH /tmp/matlab-dependencies.txt
+COPY matlab-dependencies.txt /tmp/matlab-dependencies.txt
 COPY vivado-dependencies.txt /tmp/vivado-dependencies.txt
 
 RUN apt-get update -y
