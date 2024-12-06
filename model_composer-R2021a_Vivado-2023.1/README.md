@@ -25,3 +25,5 @@ Lauch the tools by running
 ```
 model_composer
 ```
+
+Please note the `matlab-dependencies.txt` file in this directory is copied from the Mathworks-maintained R2021a Ubuntu image available [here](https://github.com/mathworks-ref-arch/container-images/blob/6133a1472cc927e81607e38277d4cf9a69f60c05/matlab-deps/r2021a/ubuntu20.04/base-dependencies.txt) because Docker does not support access the submodle file directly as it is outside the build directory.
