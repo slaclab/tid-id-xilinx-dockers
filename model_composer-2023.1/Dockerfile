@@ -1,9 +1,12 @@
 FROM ubuntu:20.04
 
+# Copy file from host to container
+ADD matlab-deps.txt /tmp/.
+
 # Install Matlab packages
 RUN export DEBIAN_FRONTEND=noninteractive \
     && apt-get update \
-    && apt-get install --no-install-recommends -y `cat ${depDir}/matlab-deps.txt` \
+    && apt-get install --no-install-recommends -y `cat /tmp/matlab-deps.txt` \
     && apt-get clean && apt-get -y autoremove \
     && rm -rf /var/lib/apt/lists/*
 
