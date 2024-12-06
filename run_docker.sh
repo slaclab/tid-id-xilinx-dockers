@@ -10,6 +10,7 @@ fi
 # Generate docker name (must be all lowercase)
 dockerName=tid-$1-${USER}
 dockerName=$(echo "$dockerName" | tr '[:upper:]' '[:lower:]')
+home=$(echo "$HOME" | sed "s/$USER//")
 
 # Run the docker
 docker run -ti \
@@ -20,5 +21,5 @@ docker run -ti \
    -v /afs/:/afs \
    -v /sdf/:/sdf \
    -v /u1:/u1 \
-   -v /home:/home \
+   -v $home:/home \
    $dockerName:latest /bin/bash
