@@ -1,6 +1,6 @@
 FROM ubuntu:22.04
 
-# Install system tools
+## Install system tools
 COPY user-dependencies.txt /tmp/user-dependencies.txt
 COPY matlab-dependencies.txt /tmp/matlab-dependencies.txt
 COPY vivado-dependencies.txt /tmp/vivado-dependencies.txt
@@ -13,8 +13,8 @@ RUN export DEBIAN_FRONTEND=noninteractive \
     && apt-get clean && apt-get -y autoremove \
     && rm -rf /var/lib/apt/lists/*
 
-# Install qt4 from a weird place because some docs say Vitis Model Composer on Ubuntu 20 requires it
-# https://adaptivesupport.amd.com/s/question/0D52E00006vF6FOSA0/model-composer-v20212-matlab-r2021a-gets-stuck-at-initialization-stage-on-ubuntu-20041?language=en_US
+## Install qt4 from a weird place because some docs say Vitis Model Composer on Ubuntu 20 requires it
+## https://adaptivesupport.amd.com/s/question/0D52E00006vF6FOSA0/model-composer-v20212-matlab-r2021a-gets-stuck-at-initialization-stage-on-ubuntu-20041?language=en_US
 #RUN export DEBIAN_FRONTEND=noninteractive \
 #    && add-apt-repository ppa:rock-core/qt4 \
 #    && apt-get update -y \
@@ -29,7 +29,9 @@ ARG uid
 ARG gid
 ARG user
 RUN groupadd -g ${gid} -o ${user}
-RUN useradd -m -N --gid ${gid} --shell /bin/bash --uid ${uid} ${user} && echo ${user}:password | chpasswd && adduser ${user} sudo
+## Uncomment the line below to make your user name have sudo access with password 'password'. This is useful for debugging inside the docker container but use caution.
+#RUN useradd -m -N --gid ${gid} --shell /bin/bash --uid ${uid} ${user} && echo ${user}:password | chpasswd && adduser ${user} sudo
+RUN useradd -m -N --gid ${gid} --shell /bin/bash --uid ${uid} ${user}
 
 RUN mkdir /u1
 RUN mkdir /afs
