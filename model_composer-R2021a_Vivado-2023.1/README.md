@@ -26,4 +26,18 @@ Lauch the tools by running
 model_composer
 ```
 
-Please note the `matlab-dependencies.txt` file in this directory is copied from the Mathworks-maintained R2021a Ubuntu image available [here](https://github.com/mathworks-ref-arch/container-images/blob/6133a1472cc927e81607e38277d4cf9a69f60c05/matlab-deps/r2021a/ubuntu20.04/base-dependencies.txt) because Docker does not support access the submodle file directly as it is outside the build directory.
+Note the `matlab-core-dependencies.txt` file in this directory is copied from the Mathworks-maintained R2021a Ubuntu image available [here](https://github.com/mathworks-ref-arch/container-images/blob/6133a1472cc927e81607e38277d4cf9a69f60c05/matlab-deps/r2021a/ubuntu20.04/base-dependencies.txt) because Docker does not support access the submodle file directly as it is outside the build directory.
+
+The `matlab-add-dependencies.txt` file contais packages specified in the Mathworks-maintained R2021a Ubuntu [Dockerfile](https://github.com/mathworks-ref-arch/container-images/blob/a0141b223649e2398bb2a79a4ef3cf671caa309e/matlab-deps/r2021a/ubuntu20.04/Dockerfile#L17) required for various code generation capabilities.
+```
+# code generation capabilities, or if you will be compiling your own mex files
+# with gcc, g++, or gfortran.
+#
+#RUN export DEBIAN_FRONTEND=noninteractive && apt-get update -y && apt-get install -y gcc g++ gfortran && apt-get clean && apt-get -y autoremove && rm -rf /var/lib/apt/lists/*
+
+# Uncomment the following RUN apt-get statement to enable running a program
+# that makes use of MATLAB's Engine API for C and Fortran
+# https://www.mathworks.com/help/matlab/matlab_external/introducing-matlab-engine.html
+#
+#RUN export DEBIAN_FRONTEND=noninteractive && apt-get update -y && apt-get install -y csh && apt-get clean && apt-get -y autoremove && rm -rf /var/lib/apt/lists/*
+```

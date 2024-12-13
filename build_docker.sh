@@ -24,7 +24,7 @@ if [ ! -e "$1/Dockerfile" ]; then
 fi
 
 # Build the docker
-docker image build $1/. -t \
+docker image build --no-cache $1/. -t \
    $dockerName:latest \
    --build-arg user=${USER} \
    --build-arg uid="$(id -u)" \
