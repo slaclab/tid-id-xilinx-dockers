@@ -13,8 +13,21 @@ RUN export DEBIAN_FRONTEND=noninteractive \
 
 RUN [ -d /usr/share/X11/xkb ] || mkdir -p /usr/share/X11/xkb
 
-WORKDIR /
 
+ARG uid
+ARG gid
+ARG user
+RUN groupadd -g ${gid} -o ${user}
+## Uncomment the line below to make your user name have sudo access with password 'password'. This is useful for debugging inside the docker container but use caution.
+RUN useradd -m -N --gid ${gid} --shell /bin/bash --uid ${uid} ${user} && echo ${user}:password | chpasswd && adduser ${user} sudo
+#RUN useradd -m -N --gid ${gid} --shell /bin/bash --uid ${uid} ${user}
+
+RUN mkdir /u1
+RUN mkdir /afs
+RUN mkdir /sdf
+
+USER ${user}
+WORKDIR /home/${user}
 # Uncomment the following RUN apt-get statement if you will be using Simulink
 # code generation capabilities, or if you will be compiling your own mex files
 # with gcc, g++, or gfortran.
