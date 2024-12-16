@@ -1,13 +1,16 @@
 FROM ubuntu:22.04
 
 ## Install system tools
-COPY user-dependencies.txt /tmp/user-dependencies.txt
-COPY matlab-dependencies.txt /tmp/matlab-dependencies.txt
-COPY vivado-dependencies.txt /tmp/vivado-dependencies.txt
+ADD user-dependencies.txt /tmp/.
+ADD matlab-core-dependencies.txt /tmp/.
+ADD matlab-add-dependencies.txt /tmp/.
+ADD vivado-dependencies.txt /tmp/.
+
 
 RUN apt-get update -y
 RUN export DEBIAN_FRONTEND=noninteractive \
-    && apt-get install --no-install-recommends -y `cat /tmp/matlab-dependencies.txt` \
+    && apt-get install --no-install-recommends -y `cat /tmp/matlab-core-dependencies.txt` \
+    && apt-get install --no-install-recommends -y `cat /tmp/matlab-add-dependencies.txt` \
     && apt-get install --no-install-recommends -y `cat /tmp/vivado-dependencies.txt` \
     && apt-get install --no-install-recommends -y `cat /tmp/user-dependencies.txt` \
     && apt-get clean && apt-get -y autoremove \
